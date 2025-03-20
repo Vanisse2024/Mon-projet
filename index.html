@@ -1,19 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Générateur de Mèmes</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Générateur de Mèmes</h1>
-    <input type="file" id="imageUpload">
-    <canvas id="memeCanvas"></canvas>
-    <input type="text" id="memeText" placeholder="Texte du mème">
-    <button onclick="generateMeme()">Générer</button>
-    <button onclick="downloadMeme()">Télécharger</button>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-laugh-beam"></i> Générateur de Mèmes</h1>
+            <p class="tagline">Créez et partagez des mèmes en quelques clics !</p>
+        </header>
+
+        <div class="meme-creator">
+            <div class="upload-section">
+                <label for="imageUpload" class="upload-btn">
+                    <i class="fas fa-upload"></i> Choisir une image
+                </label>
+                <input type="file" id="imageUpload" accept="image/*">
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="memeCanvas"></canvas>
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-image"></i>
+                    <p>Téléchargez une image pour commencer</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="text-controls">
+                    <input type="text" id="topText" placeholder="Texte du haut">
+                    <input type="text" id="bottomText" placeholder="Texte du bas">
+                    <div class="color-controls">
+                        <label>
+                            <span>Couleur:</span>
+                            <input type="color" id="textColor" value="#ffffff">
+                        </label>
+                        <label>
+                            <span>Contour:</span>
+                            <input type="color" id="strokeColor" value="#000000">
+                        </label>
+                    </div>
+                    <div class="font-controls">
+                        <select id="fontFamily">
+                            <option value="Impact">Impact</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Comic Sans MS">Comic Sans MS</option>
+                            <option value="Poppins">Poppins</option>
+                        </select>
+                        <input type="range" id="fontSize" min="20" max="60" value="40">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="generateBtn" class="primary-btn"><i class="fas fa-magic"></i> Générer</button>
+                    <button id="downloadBtn" class="secondary-btn"><i class="fas fa-download"></i> Télécharger</button>
+                    <button id="shareBtn" class="secondary-btn"><i class="fas fa-share-alt"></i> Partager</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <h2><i class="fas fa-images"></i> Galerie de mèmes</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Les mèmes sauvegardés s'afficheront ici -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Générateur de Mèmes - Créez et partagez des moments de rire</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
+
 </html>
- 
